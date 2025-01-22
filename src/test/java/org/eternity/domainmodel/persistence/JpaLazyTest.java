@@ -29,7 +29,9 @@ public class JpaLazyTest {
 
 		List<DiscountPolicy> policies = em.createQuery("select p from DiscountPolicy p", DiscountPolicy.class).getResultList();
 
-		policies.stream().forEach(policy -> policy.getConditions().size());
+		for(DiscountPolicy policy : policies) {
+			policy.getConditions().size();
+		}
 	}
 
 	List<DiscountPolicy> fixture() {
